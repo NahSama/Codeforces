@@ -87,6 +87,7 @@ function solve() {
 			if (n.filter(ele => ele === 0).length === 4) {
 				count++;
 			}
+			return;
 		}
 	
 		if (s[i] === "A") {
@@ -122,38 +123,4 @@ function solve() {
 	} else {
 		myout("NO")
 	}
-}
-
-function backtrack(i) {
-	if (i === s.length + 1) {
-		if (n.filter(ele => ele === 0).length === 4) {
-			count++;
-		}
-	}
-
-	if (s[i] === "A") {
-		n[0]--;
-		backtrack(i + 1);
-		n[0]++;
-	}
-
-	if (s[i] === "B") {
-		n[1]--;
-		backtrack(i + 1);
-		n[1]++;
-	}
-
-	if (i < s.length - 1) {
-		if (s[i] === "A" && s[i + 1] === "B") {
-			n[2]--;
-			backtrack(i + 2);
-			n[2]++;
-		}
-
-		if (s[i] === "B" && s[i + 1] === "A") {
-			n[3]--;
-			backtrack(i + 2);
-			n[3]++;
-		}
-	}	
 }
